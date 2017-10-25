@@ -1,0 +1,40 @@
+/**
+ * Name: Rui Deng
+ *       Dadong Jing
+ * Data: Jan 10, 2016
+ * Overview: Answer the problems on BST.
+ * Assignment number: PA1
+ */
+
+  a. The reason that we use in-order traversal to print BST nodes is that 
+     we need to print them in ascending order. The bottom left node is the 
+     one that is the smallest among all nodes. Using in-order traversal, we
+     first go all the way down to the bottom left node and print it, then 
+     go to its parent node which is larger than itself. At last, we go to the
+     right child which is larger than its parent. By doing this recursively,
+     we can print all the nodes in ascending order.
+
+     The reason that we use post-order traversal to delete all BST nodes is 
+     that we need to delete parent node last in order to avoid null pointer
+     access. We first go all the way down to the bottom left node and delete
+     it. Then we go to its parent's right child and delete it. At last, we 
+     delete the parent node. By doing this recursively, we can successfully 
+     delete all BST nodes. 
+
+  b. Overloaded operator : ++ 
+     Overloaded example:
+       /** Pre-increment operator. */
+            BSTIterator<Data>& operator++() {
+            curr = curr->successor();
+            return *this;
+        }
+
+        /** Post-increment operator. */
+            BSTIterator<Data> operator++(int) {
+            BSTIterator before = BSTIterator(curr);
+            ++(*this);
+            return before;
+        }
+     Overloaded expression: ++a; a++
+     Overloaded operator using example: ++(*this); 
+     
